@@ -1,0 +1,14 @@
+//FLEXBOX MIXIN
+=flexbox($justify-content, $align-items)
+    display: flex
+    justify-content: $justify-content
+    align-items: $align-items
+
+//MIEDIA QUERIES MIXIN
+=mQp($min-width, $orientation)
+    @media (min-width: $min-width) and (orientation: $orientation)
+        @content
+
+=mQ($min-width)
+    @media (min-width: $min-width)
+        @content

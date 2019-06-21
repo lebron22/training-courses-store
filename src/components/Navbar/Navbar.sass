@@ -1,0 +1,75 @@
+@import '../../base-styles/variables.sass'
+@import '../../base-styles/mixins.sass'
+    
+.app-header 
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  padding: 0 10px
+  box-sizing: border-box
+  +flexbox(space-between, center)
+  line-height: $navHeight
+  background-color: $mainWhite
+  box-shadow: 0px 1px 0px 0px rgba($mainGray, 0.2)
+  text-transform: uppercase
+  font-size: 0.8em
+  z-index: 2
+
+.app-header__logo 
+  position: relative
+  flex-basis: 30%
+  color: $smokedWhite
+  font-weight: bold
+  text-align: center
+  transition: 0.3s ease-in-out
+  &:hover
+    color: $mainRed
+    &::before
+        background-color: $lightGray
+        box-shadow: 3px 3px 1px rgba($mainRed, 0.7)
+  &::before
+    content: ""
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 80%
+    height: 40px
+    background-color: $mainRed
+    box-shadow: 3px 3px 1px rgba($mainGray, 0.6)
+    transform: translate(-50%, -50%) skew(-10deg)
+    z-index: -1
+        
+.app-header__navbar
+  +flexbox(center, center)
+  flex-grow: 1
+  .app-header__item
+    position: relative
+    padding: 0 10px
+    transition: 0.1s ease-in-out
+    &:hover
+        font-weight: bold
+        font-size: 110%
+        text-decoration: underline rgba($mainRed, 0.7)
+    &::before
+        position: absolute
+        content: ""
+        top: 0
+        left: 0
+        height: 100%
+        transform: skew(-10deg)
+        border-left: 1px solid rgba($mainGray, 0.2)
+    &:last-child::before
+       border-right: 1px solid rgba($mainGray, 0.2) 
+       right: 0
+        
+.app-header__cart 
+  flex-basis: 30%
+  text-align: right
+  transition: 0.1s ease-in-out
+  .fas
+      padding: 5px
+  &:hover
+    font-weight: bold
+    font-size: 110%
+    text-decoration: underline rgba($mainRed, 0.7)
