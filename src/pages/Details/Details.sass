@@ -2,6 +2,66 @@
 @import '../../base-styles/variables.sass'
 
 .details
-    height: calc(100vh - 64px)
+    min-height: calc(100vh - 64px)
     margin-top: $navHeight
     background-color: rgba($lightGray, .3)
+
+.details__container
+    width: 100%
+    +flexbox(center,center)
+    flex-direction: column
+    +mQ(549px)
+        flex-direction: row
+
+.details__title
+    h1
+        padding: 15px 0 0 0
+    h3
+        padding: 0
+
+.details__image 
+    max-width: 50%
+    margin: 15px
+    +mQ(549px)
+        max-width: 60%
+    +mQ(749px)
+        max-width: 40%
+
+.details__description
+    text-align: center
+    +mQ(549px)
+        flex-basis: 40%
+    +mQ(749px)
+        flex-basis: 50%
+    h4
+        font-size: 1.2em    
+        margin: 10px 0
+        
+
+.description__info
+    margin: 0 30px
+    text-align: justify
+    font-size: 1.1em
+    +mQ(549px)
+        flex-basis: 60%
+    +mQ(749px)
+        flex-basis: 50%
+
+.description__buttons
+    margin-top: 10px
+
+.description__button 
+  width: 100%
+  padding: 10px
+  font-size: 1.2em
+  background: none
+  border: none
+  border-top: 1px solid rgba($mainGray, 0.4)
+  transition: 0.2s ease-in-out
+  &:last-child
+    border-bottom: 1px solid rgba($mainGray, 0.4)
+
+
+.description__button:hover 
+  background-color: rgba($mainGray, 0.2)
+  text-decoration: underline rgba($mainRed, 0.7)

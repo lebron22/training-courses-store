@@ -6,24 +6,18 @@ import "./Navbar.sass";
 const navItemsConfig = [
   {
     redirectTo: "/store",
-    name: "shop",
-    id: "n1"
+    name: "shop"
   },
   {
     redirectTo: "/sell",
-    name: "sell",
-    id: "n2"
+    name: "sell"
   }
 ];
 
 const Navbar = () => {
   const renderNavItems = () => {
-    return navItemsConfig.map(navItem => (
-      <Link
-        to={navItem.redirectTo}
-        className="app-header__item"
-        key={navItem.id}
-      >
+    return navItemsConfig.map((navItem, index) => (
+      <Link to={navItem.redirectTo} className="app-header__item" key={index}>
         {navItem.name}
       </Link>
     ));

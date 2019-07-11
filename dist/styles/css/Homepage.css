@@ -1,0 +1,21 @@
+.homepage {
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  background-color: rgba(227, 227, 227, 0.3);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.homepage__text {
+  margin: 5% 10%;
+  font-size: 0.8em;
+  text-align: justify;
+}
+
+.homepage__button {
+  padding: 5px 10px;
+  background: none;
+  border: 1px solid #9999a1;
+}
+/*# sourceMappingURL=Homepage.css.map */

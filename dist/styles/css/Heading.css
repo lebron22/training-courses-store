@@ -1,0 +1,18 @@
+.heading {
+  width: 100%;
+  text-align: center;
+}
+
+.heading__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 25px 0 15px 0;
+  text-transform: uppercase;
+}
+
+.heading__subtitle {
+  font-size: 1.1rem;
+  padding: 5px 0;
+  text-transform: capitalize;
+}
+/*# sourceMappingURL=Heading.css.map */
