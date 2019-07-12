@@ -14,8 +14,9 @@ class Store extends Component {
   };
 
   render() {
-    const renderProducts = this.state.searchedProducts.length ? (
-      <ProductList matches={this.state.searchedProducts} />
+    const { searchedProducts } = this.state;
+    const renderProducts = searchedProducts.length ? (
+      <ProductList matches={searchedProducts} />
     ) : (
       <Heading title="0 products found" />
     );

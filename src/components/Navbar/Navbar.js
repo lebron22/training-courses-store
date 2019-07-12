@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import "./Navbar.sass";
 
@@ -14,7 +15,9 @@ const navItemsConfig = [
   }
 ];
 
-const Navbar = () => {
+const Navbar = ({ storeProducts }) => {
+  const productsInCart = storeProducts.filter(product => product.inCart);
+
   const renderNavItems = () => {
     return navItemsConfig.map((navItem, index) => (
       <Link to={navItem.redirectTo} className="app-header__item" key={index}>
@@ -31,10 +34,14 @@ const Navbar = () => {
       <nav className="app-header__navbar">{renderNavItems()}</nav>
       <Link to="/cart" className="app-header__cart">
         <i className="fas fa-shopping-cart" />
-        cart (0)
+        cart ({productsInCart.length})
       </Link>
     </header>
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
+
+export default connect(mapStateToProps)(Navbar);

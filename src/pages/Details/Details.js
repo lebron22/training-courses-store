@@ -5,13 +5,8 @@ import { connect } from "react-redux";
 
 import "./Details.sass";
 
-const Details = props => {
-  const { id, author, img, info, price, title, inCart } = props.selectedProduct;
-
-  const onDetailsCartButtonClick = () => {
-    // props.addToCart(id);
-    // props.openModal(id);
-  };
+const Details = ({ selectedProduct, addToCart }) => {
+  const { author, img, info, price, title, inCart } = selectedProduct;
 
   return (
     <div className="details">
@@ -32,9 +27,7 @@ const Details = props => {
       </div>
       <div className="description__buttons">
         <button
-          onClick={() => {
-            onDetailsCartButtonClick();
-          }}
+          onClick={() => addToCart(selectedProduct)}
           className="description__button"
           disabled={inCart}
         >
@@ -52,4 +45,15 @@ const mapStateToProps = state => {
   return { selectedProduct: state.selectedProduct };
 };
 
-export default connect(mapStateToProps)(Details);
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: product => {
+      dispatch({ type: "ADD_TO_CART", product });
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Details);

@@ -21,15 +21,16 @@ class SearchBar extends Component {
   };
 
   filterMatches = () => {
-    // destucturing jak duzo masz this.props -> const {products, handleMatches } = this.props
-    const filteredProducts = this.props.products.filter(product => {
+    const { products, handleMatches } = this.props;
+    const { inputText } = this.state;
+    const filteredProducts = products.filter(product => {
       const title = product.title.toUpperCase();
-      const text = this.state.inputText.toUpperCase();
+      const text = inputText.toUpperCase();
       return title.includes(text);
     });
-    this.state.inputText.length
-      ? this.props.handleMatches(filteredProducts)
-      : this.props.handleMatches(this.props.products);
+    inputText.length
+      ? handleMatches(filteredProducts)
+      : handleMatches(products);
   };
 
   render() {

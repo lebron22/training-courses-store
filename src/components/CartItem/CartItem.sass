@@ -1,0 +1,30 @@
+@import '../../base-styles/mixins.sass'
+@import '../../base-styles/variables.sass'
+
+.item
+    +flexbox(center,center)
+    text-align: center
+    padding: 5px
+    background-color: $mainWhite
+    border-bottom: 1px solid rgba($mainGray, 0.5)
+
+.item__description
+    flex-basis: 30%
+    
+.item__img
+    width: 30%
+
+.item__title, .item__price
+    margin: 5px    
+
+.count
+    +flexbox(space-around,center)
+    flex-grow: 1
+
+.count__number
+    padding: 5px
+
+.count__button
+    padding: 5px 10px
+    background: none
+    border: 1px solid $mainGray

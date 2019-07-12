@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./pages/Homepage/Homepage";
@@ -9,16 +10,10 @@ import Details from "./pages/Details/Details";
 import Sell from "./pages/Sell/Sell";
 import Store from "./pages/Store/Store";
 
-import { storeProducts } from "./data";
-
 import "./base-styles/general.sass";
 
-class App extends Component {
-  state = {
-    storeProducts
-  };
-
-  renderRoutes = () => {
+const App = ({ storeProducts }) => {
+  const renderRoutes = () => {
     const routes = [
       { pathname: "/", component: <Homepage />, exact: true },
       {
@@ -49,15 +44,16 @@ class App extends Component {
       />
     ));
   };
+  return (
+    <>
+      <Navbar />
+      <Switch>{renderRoutes()}</Switch>
+    </>
+  );
+};
 
-  render() {
-    return (
-      <>
-        <Navbar />
-        <Switch>{this.renderRoutes()}</Switch>
-      </>
-    );
-  }
-}
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
 
-export default App;
+export default connect(mapStateToProps)(App);
