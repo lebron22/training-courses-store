@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { clearCart } from "../../actions/index";
 import "./CartTotal.sass";
 
 class CartTotal extends Component {
@@ -60,15 +61,7 @@ const mapStateToProps = state => {
   return { storeProducts: state.storeProducts };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    clearCart: product => {
-      dispatch({ type: "CLEAR_CART", product });
-    }
-  };
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { clearCart }
 )(CartTotal);

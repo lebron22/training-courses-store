@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Heading from "../../components/Heading/Heading";
 import { connect } from "react-redux";
+import { addToCart } from "../../actions/index";
 
 import "./Details.sass";
 
@@ -45,15 +46,7 @@ const mapStateToProps = state => {
   return { selectedProduct: state.selectedProduct };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addToCart: product => {
-      dispatch({ type: "ADD_TO_CART", product });
-    }
-  };
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { addToCart }
 )(Details);

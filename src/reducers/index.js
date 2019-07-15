@@ -3,6 +3,15 @@ import { combineReducers } from "redux";
 import { detailProduct } from "../data";
 import { storeProducts } from "../data";
 
+import {
+  PRODUCT_SELECTED,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  CLEAR_CART,
+  INCREMENT_PRODUCT_QUANTITY,
+  DECREMENT_PRODUCT_QUANTITY
+} from "../actions/types";
+
 const storeProductsReducer = (state = storeProducts, action) => {
   const replaceProduct = productToReplace =>
     state.map(product =>
@@ -10,45 +19,45 @@ const storeProductsReducer = (state = storeProducts, action) => {
     );
 
   switch (action.type) {
-    case "ADD_TO_CART": {
+    case ADD_TO_CART: {
       const addedProduct = {
-        ...action.product,
+        ...action.payload.product,
         inCart: true,
-        count: ++action.product.count,
-        total: action.product.price * action.product.count
+        count: ++action.payload.product.count,
+        total: action.payload.product.price * action.payload.product.count
       };
       const updatedStoreProducts = replaceProduct(addedProduct);
       return updatedStoreProducts;
     }
-    case "REMOVE_FROM_CART": {
+    case REMOVE_FROM_CART: {
       const removedProduct = {
-        ...action.product,
+        ...action.payload.product,
         inCart: false,
-        count: --action.product.count,
-        total: action.product.price * action.product.count
+        count: --action.payload.product.count,
+        total: action.payload.product.price * action.payload.product.count
       };
       const updatedStoreProducts = state.filter(
         product => product.id !== removedProduct.id
       );
       return updatedStoreProducts;
     }
-    case "CLEAR_CART": {
+    case CLEAR_CART: {
       return storeProducts;
     }
-    case "INCREMENT_PRODUCT_QUANTITY": {
+    case INCREMENT_PRODUCT_QUANTITY: {
       const updatedProduct = {
-        ...action.product,
-        count: ++action.product.count,
-        total: action.product.price * action.product.count
+        ...action.payload.product,
+        count: ++action.payload.product.count,
+        total: action.payload.product.price * action.payload.product.count
       };
       const updatedStoreProducts = replaceProduct(updatedProduct);
       return updatedStoreProducts;
     }
-    case "DECREMENT_PRODUCT_QUANTITY": {
+    case DECREMENT_PRODUCT_QUANTITY: {
       const updatedProduct = {
-        ...action.product,
-        count: --action.product.count,
-        total: action.product.price * action.product.count
+        ...action.payload.product,
+        count: --action.payload.product.count,
+        total: action.payload.product.price * action.payload.product.count
       };
       const updatedStoreProducts = replaceProduct(updatedProduct);
       return updatedStoreProducts;
@@ -59,8 +68,8 @@ const storeProductsReducer = (state = storeProducts, action) => {
 };
 
 const selectedProductReducer = (state = detailProduct, action) => {
-  if (action.type === "PRODUCT_SELECTED") {
-    return action.product;
+  if (action.type === PRODUCT_SELECTED) {
+    return action.payload.product;
   }
   return state;
 };

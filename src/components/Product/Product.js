@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { selectProduct, addToCart } from "../../actions/index";
 
 import "./Product.sass";
 
@@ -43,18 +44,7 @@ const Product = ({ product, selectProduct, addToCart }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    selectProduct: product => {
-      dispatch({ type: "PRODUCT_SELECTED", product });
-    },
-    addToCart: product => {
-      dispatch({ type: "ADD_TO_CART", product });
-    }
-  };
-};
-
 export default connect(
   null,
-  mapDispatchToProps
+  { selectProduct, addToCart }
 )(Product);

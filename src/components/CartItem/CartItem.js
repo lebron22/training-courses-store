@@ -1,5 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import {
+  removeFromCart,
+  incrementProductQuantity,
+  decrementProductQuantity
+} from "../../actions/index";
 import "./CartItem.sass";
 
 const CartItem = ({
@@ -46,21 +51,7 @@ const CartItem = ({
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    removeFromCart: product => {
-      dispatch({ type: "REMOVE_FROM_CART", product });
-    },
-    incrementProductQuantity: product => {
-      dispatch({ type: "INCREMENT_PRODUCT_QUANTITY", product });
-    },
-    decrementProductQuantity: product => {
-      dispatch({ type: "DECREMENT_PRODUCT_QUANTITY", product });
-    }
-  };
-};
-
 export default connect(
   null,
-  mapDispatchToProps
+  { removeFromCart, incrementProductQuantity, decrementProductQuantity }
 )(CartItem);
