@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Heading from "../../components/Heading/Heading";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ProductList from "../../components/ProductList/ProductList";
@@ -23,7 +24,7 @@ class Store extends Component {
     return (
       <div className="store">
         <SearchBar
-          products={this.props.products}
+          products={this.props.storeProducts}
           handleMatches={this.handleSearchedProducts}
         />
         {renderProducts}
@@ -32,4 +33,8 @@ class Store extends Component {
   }
 }
 
-export default Store;
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
+
+export default connect(mapStateToProps)(Store);

@@ -2,13 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Heading from "../../components/Heading/Heading";
 import { connect } from "react-redux";
-import { addToCart } from "../../actions/index";
+import {
+  addToCart,
+  selectProduct,
+  addToCartInSelectedProduct
+} from "../../actions/index";
 
 import "./Details.sass";
 
-const Details = ({ selectedProduct, addToCart }) => {
+const Details = ({
+  selectedProduct,
+  addToCartInSelectedProduct,
+  addToCart
+}) => {
   const { author, img, info, price, title, inCart } = selectedProduct;
-
   return (
     <div className="details">
       <Heading title={title} className="details__title" />
@@ -28,7 +35,10 @@ const Details = ({ selectedProduct, addToCart }) => {
       </div>
       <div className="description__buttons">
         <button
-          onClick={() => addToCart(selectedProduct)}
+          onClick={() => {
+            addToCart(selectedProduct);
+            addToCartInSelectedProduct(selectedProduct);
+          }}
           className="description__button"
           disabled={inCart}
         >
@@ -48,5 +58,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addToCart }
+  { addToCart, selectProduct, addToCartInSelectedProduct }
 )(Details);

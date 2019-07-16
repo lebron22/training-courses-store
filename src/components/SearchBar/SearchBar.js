@@ -10,6 +10,12 @@ class SearchBar extends Component {
     this.filterMatches();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.products !== prevProps.products) {
+      this.filterMatches();
+    }
+  }
+
   handleInputChange = async e => {
     await this.setState({ inputText: e.target.value });
     await this.filterMatches();

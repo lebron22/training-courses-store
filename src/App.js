@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
 
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./pages/Homepage/Homepage";
@@ -19,7 +18,7 @@ const App = ({ storeProducts }) => {
       {
         pathname: "/store",
         exact: true,
-        component: <Store products={storeProducts} />
+        component: <Store />
       },
       {
         pathname: "/details/:id",
@@ -52,8 +51,4 @@ const App = ({ storeProducts }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return { storeProducts: state.storeProducts };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
