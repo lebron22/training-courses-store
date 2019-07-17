@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { selectProduct, addToCart } from "../../actions/index";
+import { addToCart } from "../../actions/index";
 
 import "./Product.sass";
 
-const Product = ({ product, selectProduct, addToCart }) => {
+const Product = ({ product, addToCart }) => {
   const { id, title, img, price, author, inCart } = product;
 
   const renderAddToCartButtonContent = () =>
@@ -26,8 +26,8 @@ const Product = ({ product, selectProduct, addToCart }) => {
         <span className="card__currency">$</span>
         {price}
       </h3>
-      <Link to={"/details/" + id} className="card__image">
-        <img src={img} alt={title} onClick={() => selectProduct(product)} />
+      <Link to={`/details/${id}`} className="card__image">
+        <img src={img} alt={title} />
       </Link>
       <div className="card__describe">
         <p className="card__title">{title}</p>
@@ -46,5 +46,5 @@ const Product = ({ product, selectProduct, addToCart }) => {
 
 export default connect(
   null,
-  { selectProduct, addToCart }
+  { addToCart }
 )(Product);

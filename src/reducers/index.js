@@ -1,11 +1,8 @@
 import { combineReducers } from "redux";
 
-import { detailProduct } from "../data";
 import { storeProducts } from "../data";
 
 import {
-  PRODUCT_SELECTED,
-  ADD_TO_CART_IN_SELECTED_PRODUCT,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CLEAR_CART,
@@ -68,20 +65,6 @@ const storeProductsReducer = (state = storeProducts, action) => {
   }
 };
 
-const selectedProductReducer = (state = detailProduct, action) => {
-  if (action.type === PRODUCT_SELECTED) {
-    return action.payload.product;
-  } else if (action.type === ADD_TO_CART_IN_SELECTED_PRODUCT) {
-    const updatedProduct = {
-      ...action.payload.product,
-      inCart: true
-    };
-    return updatedProduct;
-  }
-  return state;
-};
-
 export default combineReducers({
-  selectedProduct: selectedProductReducer,
   storeProducts: storeProductsReducer
 });

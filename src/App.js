@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./pages/Homepage/Homepage";
@@ -18,17 +19,17 @@ const App = ({ storeProducts }) => {
       {
         pathname: "/store",
         exact: true,
-        component: <Store />
+        component: <Store storeProducts={storeProducts} />
       },
       {
         pathname: "/details/:id",
         exact: false,
-        component: <Details />
+        component: <Details storeProducts={storeProducts} />
       },
       {
         pathname: "/cart",
         exact: false,
-        component: <Cart />
+        component: <Cart storeProducts={storeProducts} />
       },
       { pathname: "/sell", component: <Sell />, exact: false },
       { component: <Default />, exact: false }
@@ -45,10 +46,15 @@ const App = ({ storeProducts }) => {
   };
   return (
     <>
-      <Navbar />
+      <Navbar storeProducts={storeProducts} />
       <Switch>{renderRoutes()}</Switch>
     </>
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
+
+export default connect(mapStateToProps)(App);
+// { addToCart, removeFromCart, clearCart, incrementProductQuantity, decrementProductQuantity }

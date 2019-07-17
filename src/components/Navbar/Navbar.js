@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 import "./Navbar.sass";
 
@@ -40,8 +39,4 @@ const Navbar = ({ storeProducts }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return { storeProducts: state.storeProducts };
-};
-
-export default connect(mapStateToProps)(Navbar);
+export default Navbar;

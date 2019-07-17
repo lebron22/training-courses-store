@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const fieldsData = {
+export const fieldsDataConfig = {
   author: {
     initialValue: "",
     type: "text",

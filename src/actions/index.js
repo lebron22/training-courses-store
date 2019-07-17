@@ -1,6 +1,4 @@
 import {
-  PRODUCT_SELECTED,
-  ADD_TO_CART_IN_SELECTED_PRODUCT,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CLEAR_CART,
@@ -8,19 +6,6 @@ import {
   DECREMENT_PRODUCT_QUANTITY
 } from "./types";
 
-export const selectProduct = product => {
-  return {
-    type: PRODUCT_SELECTED,
-    payload: { product }
-  };
-};
-
-export const addToCartInSelectedProduct = product => {
-  return {
-    type: ADD_TO_CART_IN_SELECTED_PRODUCT,
-    payload: { product }
-  };
-};
 export const addToCart = product => {
   return {
     type: ADD_TO_CART,

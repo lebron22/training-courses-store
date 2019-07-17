@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import Heading from "../../components/Heading/Heading";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ProductList from "../../components/ProductList/ProductList";
@@ -33,8 +32,4 @@ class Store extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { storeProducts: state.storeProducts };
-};
-
-export default connect(mapStateToProps)(Store);
+export default Store;
