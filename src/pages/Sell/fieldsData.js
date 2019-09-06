@@ -70,7 +70,7 @@ export const fieldsDataConfig = {
     type: "text",
     name: "description",
     label: "Description",
-    fieldClassName: "sell__input--textarea",
+    fieldClassName: "searchbar__input sell__input--textarea",
     errorClassName: "field-error",
     validation: Yup.string()
       .min(10, "Must be longer than 10 characters")

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Heading from "../../components/Heading/Heading";
+import { connect } from "react-redux";
+import Heading from "../../components/shared/Heading/Heading";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ProductList from "../../components/ProductList/ProductList";
 import "./Store.sass";
@@ -32,4 +33,8 @@ class Store extends Component {
   }
 }
 
-export default Store;
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
+
+export default connect(mapStateToProps)(Store);

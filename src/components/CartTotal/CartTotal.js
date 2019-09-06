@@ -57,7 +57,11 @@ class CartTotal extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { clearCart }
 )(CartTotal);

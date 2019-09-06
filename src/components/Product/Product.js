@@ -26,7 +26,7 @@ const Product = ({ product, addToCart }) => {
         <span className="card__currency">$</span>
         {price}
       </h3>
-      <Link to={`/details/${id}`} className="card__image">
+      <Link to={"/details/" + id} className="card__image">
         <img src={img} alt={title} />
       </Link>
       <div className="card__describe">

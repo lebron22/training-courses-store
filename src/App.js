@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
 
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./pages/Homepage/Homepage";
@@ -12,27 +11,27 @@ import Store from "./pages/Store/Store";
 
 import "./base-styles/general.sass";
 
-const App = ({ storeProducts }) => {
+const App = () => {
   const renderRoutes = () => {
     const routes = [
-      { pathname: "/", component: <Homepage />, exact: true },
+      { pathname: "/", component: Homepage, exact: true },
       {
         pathname: "/store",
         exact: true,
-        component: <Store storeProducts={storeProducts} />
+        component: Store
       },
       {
         pathname: "/details/:id",
         exact: false,
-        component: <Details storeProducts={storeProducts} />
+        component: Details
       },
       {
         pathname: "/cart",
         exact: false,
-        component: <Cart storeProducts={storeProducts} />
+        component: Cart
       },
-      { pathname: "/sell", component: <Sell />, exact: false },
-      { component: <Default />, exact: false }
+      { pathname: "/sell", component: Sell, exact: false },
+      { component: Default, exact: false }
     ];
 
     return routes.map((route, index) => (
@@ -40,21 +39,16 @@ const App = ({ storeProducts }) => {
         key={index}
         exact={route.exact}
         path={route.pathname}
-        render={() => route.component}
+        component={route.component}
       />
     ));
   };
   return (
     <>
-      <Navbar storeProducts={storeProducts} />
+      <Navbar />
       <Switch>{renderRoutes()}</Switch>
     </>
   );
 };
 
-const mapStateToProps = state => {
-  return { storeProducts: state.storeProducts };
-};
-
-export default connect(mapStateToProps)(App);
-// { addToCart, removeFromCart, clearCart, incrementProductQuantity, decrementProductQuantity }
+export default App;

@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-import Heading from "../../components/Heading/Heading";
+import Heading from "../../components/shared/Heading/Heading";
 import CartList from "../../components/CartList/CartList";
 import CartTotal from "../../components/CartTotal/CartTotal";
 import EmptyCart from "../../components/EmptyCart/EmptyCart";
@@ -12,8 +13,8 @@ const Cart = ({ storeProducts }) => {
   const renderContent = () =>
     productsInCart.length ? (
       <>
-        <CartList storeProducts={storeProducts} />
-        <CartTotal storeProducts={storeProducts} />
+        <CartList />
+        <CartTotal />
       </>
     ) : (
       <EmptyCart />
@@ -26,4 +27,8 @@ const Cart = ({ storeProducts }) => {
   );
 };
 
-export default Cart;
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
+
+export default connect(mapStateToProps)(Cart);

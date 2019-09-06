@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Heading from "../../components/Heading/Heading";
+import Heading from "../../components/shared/Heading/Heading";
 import "./Homepage.sass";
 
 const Homepage = () => {

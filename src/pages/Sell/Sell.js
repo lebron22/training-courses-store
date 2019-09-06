@@ -3,12 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { fieldsDataConfig } from "./fieldsData";
 
-import Heading from "../../components/Heading/Heading";
+import Heading from "../../components/shared/Heading/Heading";
 
 import "./Sell.sass";
 
 const Sell = () => {
-  //Join into one function
   const setValidationSchema = dataObject =>
     Object.assign(
       ...Object.entries(dataObject).map(([key, value]) => ({

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
-import Heading from "../../components/Heading/Heading";
+import Heading from "../../components/shared/Heading/Heading";
 import { connect } from "react-redux";
 import { detailProduct } from "../../data";
 import { addToCart } from "../../actions/index";
@@ -14,13 +13,12 @@ class Details extends Component {
   };
 
   updateSelectedProduct = () => {
-    const { storeProducts, match, history } = this.props;
-    const productSelected = storeProducts.filter(
-      product => String(product.id) === match.params.id
+    const productSelected = this.props.storeProducts.filter(
+      product => String(product.id) === this.props.match.params.id
     );
     productSelected.length
       ? this.setState({ productSelected: productSelected[0] })
-      : history.push("/store");
+      : this.props.history.push("/store");
   };
 
   componentDidMount() {
@@ -73,9 +71,11 @@ class Details extends Component {
   }
 }
 
-const withRouterDetails = withRouter(Details);
+const mapStateToProps = state => {
+  return { storeProducts: state.storeProducts };
+};
 
 export default connect(
-  null,
+  mapStateToProps,
   { addToCart }
-)(withRouterDetails);
+)(Details);
