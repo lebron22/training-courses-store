@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/training-courses-store/static/css/main.52f17c1b.chunk.css",
+    "main.js": "/training-courses-store/static/js/main.bcefab93.chunk.js",
+    "main.js.map": "/training-courses-store/static/js/main.bcefab93.chunk.js.map",
+    "runtime~main.js": "/training-courses-store/static/js/runtime~main.f108b4fb.js",
+    "runtime~main.js.map": "/training-courses-store/static/js/runtime~main.f108b4fb.js.map",
+    "static/js/2.3df37afb.chunk.js": "/training-courses-store/static/js/2.3df37afb.chunk.js",
+    "static/js/2.3df37afb.chunk.js.map": "/training-courses-store/static/js/2.3df37afb.chunk.js.map",
+    "index.html": "/training-courses-store/index.html",
+    "precache-manifest.d0232a65d6c20e2a979ad0fdb122d9d8.js": "/training-courses-store/precache-manifest.d0232a65d6c20e2a979ad0fdb122d9d8.js",
+    "service-worker.js": "/training-courses-store/service-worker.js",
+    "static/css/main.52f17c1b.chunk.css.map": "/training-courses-store/static/css/main.52f17c1b.chunk.css.map"
+  }
+}
