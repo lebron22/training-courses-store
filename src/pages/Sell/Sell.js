@@ -7,7 +7,7 @@ import Heading from "../../components/shared/Heading/Heading";
 
 import "./Sell.sass";
 
-const Sell = () => {
+const Sell = props => {
   const setValidationSchema = dataObject =>
     Object.assign(
       ...Object.entries(dataObject).map(([key, value]) => ({
@@ -36,8 +36,10 @@ const Sell = () => {
       </div>
     ));
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     alert("product sent for acceptance");
+    props.history.push("/training-courses-store");
   };
 
   return (
