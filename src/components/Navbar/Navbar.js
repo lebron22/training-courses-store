@@ -28,7 +28,7 @@ const Navbar = ({ storeProducts }) => {
   return (
     <header className="app-header">
       <nav className="app-header__navbar">
-        <Link to="/" className="app-header__logo">
+        <Link to="/training-courses-store" className="app-header__logo">
           logo
         </Link>
         {renderNavItems()}
