@@ -2,9 +2,11 @@
 @import '../../base-styles/variables.sass'
 
 .sell
-    height: calc(100vh - 64px)
+    min-height: calc(100vh - 64px)
     margin-top: $navHeight
     background-color: rgba($lightGray, .3)
+    flex-direction: column
+    +flexbox(flex-start,center)
 
 .sell__heading
     .heading__title
@@ -13,9 +15,10 @@
         padding: 5px 0
 
 .sell__form
-    width: 100%
+    width: 85%
+    max-width: 500px
     box-sizing: border-box
-    padding: 0 20px
+    padding: 0 0 20px 0
 
 .sell__input
     width: 100%
@@ -27,11 +30,17 @@
     width: 100%
     height: 100px
     resize: none
+.sell__input--checkbox
+    padding: 20px
 
 .field-error
     color: red
     width: 100%
     padding: 10px
+    text-align: right
 .field__label
     display: inline-block
     width: 100%
+.field
+    padding: 5px 0
+    

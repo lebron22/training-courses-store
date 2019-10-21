@@ -24,17 +24,21 @@ const Sell = () => {
   const renderFields = fieldsObject =>
     Object.values(fieldsObject).map((field, index) => (
       <div className="field" key={index}>
-        <label className="field__label">
-          {field.label}:
-          <Field
-            type={field.type}
-            name={field.name}
-            className={field.fieldClassName}
-          />
-          <ErrorMessage name={field.name} className={field.errorClassName} />
+        <label className="field__label">{field.label}:</label>
+        <Field
+          type={field.type}
+          name={field.name}
+          className={field.fieldClassName}
+        />
+        <label className={field.errorClassName}>
+          <ErrorMessage name={field.name} />
         </label>
       </div>
     ));
+
+  const handleSubmit = () => {
+    alert("product sent for acceptance");
+  };
 
   return (
     <div className="sell">
@@ -45,7 +49,7 @@ const Sell = () => {
           setValidationSchema(fieldsDataConfig)
         )}
         render={() => (
-          <Form className="sell__form">
+          <Form className="sell__form" onSubmit={handleSubmit}>
             {renderFields(fieldsDataConfig)}
             <button type="submit">Submit</button>
           </Form>
