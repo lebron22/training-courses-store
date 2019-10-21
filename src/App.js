@@ -14,7 +14,7 @@ import "./base-styles/general.sass";
 const App = () => {
   const renderRoutes = () => {
     const routes = [
-      { pathname: "/", component: Homepage, exact: true },
+      { pathname: "/training-courses-store", component: Homepage, exact: true },
       {
         pathname: "/store",
         exact: true,
